@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   Controller.renderList(req, res);
 });
 
+router.get('/:id', function(req, res, next) {
+  Controller.renderGet(req, res);
+});
+
 module.exports = router;

@@ -87,6 +87,21 @@ var Controller = {
                                     beers: data });
       }
     });
+  },
+  renderGet: function(req, res) {
+
+    var query = {_id: req.params.id};
+    Beer.findOne(query, function (err, data) {
+      if (err){
+        console.log('Erro: ', err);
+        res.render('beers/error', { error: err });
+      }
+      else{
+        console.log('Cervejas Listadas: ', data);
+        res.render('beers/get', { title: 'Cerveja ' + data.name,
+                                    beer: data });
+      }
+    });
   }
 };
 
