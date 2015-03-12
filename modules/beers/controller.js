@@ -115,8 +115,23 @@ var Controller = {
         res.render('beers/error', { error: err });
       }
       else{
-        console.log('Cervejas consultada: ', data);
+        console.log('Cervejas alteradas: ', data);
         res.render('beers/update', { title: 'Cerveja ' + data.name,
+                                    beer: data });
+      }
+    });
+  },
+  renderRemove: function(req, res) {
+
+    var query = {_id: req.params.id};
+    Beer.findOne(query, function (err, data) {
+      if (err){
+        console.log('Erro: ', err);
+        res.render('beers/error', { error: err });
+      }
+      else{
+        console.log('Cervejas removidas: ', data);
+        res.render('beers/remove', { title: 'Remover Cerveja ' + data.name,
                                     beer: data });
       }
     });

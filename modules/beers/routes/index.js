@@ -18,4 +18,8 @@ router.get('/:id/update', function(req, res, next) {
   Controller.renderUpdate(req, res);
 });
 
+router.get('/:id/remove', function(req, res, next) {
+  Controller.renderRemove(req, res);
+});
+
 module.exports = router;
