@@ -14,4 +14,8 @@ router.get('/:id', function(req, res, next) {
   Controller.renderGet(req, res);
 });
 
+router.get('/:id/update', function(req, res, next) {
+  Controller.renderUpdate(req, res);
+});
+
 module.exports = router;
