@@ -72,6 +72,21 @@ var Controller = {
         res.json(data);
       }
     });
+  },
+  renderList: function(req, res) {
+
+    var query = {};
+    Beer.find(query, function (err, data) {
+      if (err){
+        console.log('Erro: ', err);
+        res.render('beers/error', { error: err });
+      }
+      else{
+        console.log('Cervejas Listadas: ', data);
+        res.render('beers/index', { title: 'Listagem das cervejas',
+                                    beers: data });
+      }
+    });
   }
 };
 
